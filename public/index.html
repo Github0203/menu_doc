@@ -25,6 +25,38 @@
       Learn how to configure a non-root public URL by running `npm run build`.
     -->
     <title>React App</title>
+      <script src="https://code.jquery.com/jquery-latest.js"></script>
+      
+ <!-- Latest compiled and minified CSS -->
+ <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+
+ <!-- Optional theme -->
+ <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
+
+ <!-- jQuery -->
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+
+ <!-- Latest compiled and minified JavaScript -->
+ <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+
+ <!-- Custom CSS -->
+ <style media="screen">
+  /*body { padding-top: 70px; }*/
+  #connectLogo {
+    height: 60px;
+    padding: 15px 0 5px 0;
+  }
+  #logo {
+    height: 60px;
+    padding: 5px 0 5px 20px;
+  }
+
+  .share-link {
+    line-height: 60px;
+    padding: 0 1em;
+    font-size: 2em;
+  }
+</style>
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
@@ -39,5 +71,81 @@
       To begin the development, run `npm start` or `yarn start`.
       To create a production bundle, use `npm run build` or `yarn build`.
     -->
+    <!-- <script>
+      $(document).ready(function () {
+        function toggleSidebar() {
+          $(".button").toggleClass("active");
+          $("main").toggleClass("move-to-left");
+          $(".sidebar-item").toggleClass("active");
+        }
+  
+        $(".button").on("click tap", function () {
+          toggleSidebar();
+        });
+  
+        $(document).keyup(function (e) {
+          if (e.keyCode === 27) {
+            toggleSidebar();
+          }
+        });
+  
+      });
+    </script>
+  <script src="https://cpwebassets.codepen.io/assets/common/stopExecutionOnTimeout-1b93190375e9ccc259df3a57c1abc0e64599724ae30d7ea4c6877eb615f89387.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script> -->
+    <!-- Menu Toggle Script -->
+    <!-- <script>
+      $(document).ready(function () {
+      $(".menu-toggle").click(function(e) {
+          $("#wrapper").toggleClass("toggled");
+      });
+    });
+      </script> -->
+      <script>
+        $(document).ready(function () {
+/* 
+Inspired from: https://tympanus.net/codrops/2013/08/28/transitions-for-off-canvas-navigations/
+
+there are still some quirks for animation 3, 6, 7, 8 & 14 
+as they do not animate back gracefully  
+(those are the navs in the div with class st-pusher)
+*/
+
+var click = document.querySelectorAll('div button');
+var menu = document.querySelector('#st-container');
+var pusher = document.querySelector('.st-pusher');
+// to store the corresponding effect
+var effect;
+
+// adding a click event to all the buttons
+for (var i = 0; i < click.length; i++) {
+  click[i].addEventListener('click', addClass)
+}
+
+pusher.addEventListener('click', closeMenu);
+
+
+
+function addClass(e) {
+  // to get the correct effect
+  effect = e.target.getAttribute('data-effect');
+  // adding the effects
+  menu.classList.toggle(effect);
+  menu.classList.toggle('st-menu-open');
+  
+  // console.log(e.target.getAttribute('data-effect'));
+}
+
+function closeMenu(el) {
+  // if the click target has this class then we close the menu by removing all the classes
+  if (el.target.classList.contains('st-pusher')) {
+    menu.classList.toggle(effect);
+    menu.classList.toggle('st-menu-open');
+    // console.log(el.target);
+  } 
+}
+
+});
+      </script>
   </body>
 </html>
